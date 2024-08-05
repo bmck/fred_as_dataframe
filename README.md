@@ -108,7 +108,7 @@ The following conventions are intended for this project.
  * When fetched, the dataset may be filtered based on optional (hash) arguments.
  * Output should be provided in a consistent DataFrame format (currently Polars::DataFrame).
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/bmck/econ_data_reader.
+Bug reports and pull requests are welcome on GitHub at https://github.com/bmck/fred_as_dataframe.
 
 
 ## License
