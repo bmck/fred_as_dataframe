@@ -26,7 +26,8 @@ module FredAsDataframe
       i = interval[0..-2].to_i
 
       begin
-        data = data.select{ |date, _| (start.nil? || date >= start.to_date) && (fin.nil? || date <= fin.to_date) }
+        data = data.select{ |date, _| (start.nil? || date >= start.to_date) } unless start.nil? 
+        data = data.select{ |date, _| (fin.nil? || date <= fin.to_date) } unless fin.nil?
         data = data.each_slice(i).map(&:first)
       rescue KeyError => e
         if data.keys[3].to_s[7, 5] == "Error"
