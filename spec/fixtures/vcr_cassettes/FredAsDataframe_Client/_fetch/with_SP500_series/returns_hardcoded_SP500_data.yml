@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.stlouisfed.org/fred/series/observations?api_key=<FRED_API_KEY>&series_id=SP500
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - text/xml; charset=UTF-8
+      Server:
+      - Apache
+      Content-Length:
+      - '248'
+      Date:
+      - Fri, 28 Aug 2026 17:23:31 GMT
+      Connection:
+      - keep-alive
+      Alt-Svc:
+      - h3=":443"; ma=93600
+      Strict-Transport-Security:
+      - max-age=86400
+      X-Location:
+      - cfs
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" encoding="utf-8" ?>
+        <error code="400" message="Bad Request.  The value for variable api_key is not a 32 character alpha-numeric lower-case string.  Read https://fred.stlouisfed.org/docs/api/api_key.html for more information." />
+  recorded_at: Fri, 28 Aug 2026 17:23:31 GMT
+recorded_with: VCR 6.4.0

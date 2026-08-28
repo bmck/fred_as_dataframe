@@ -31,4 +31,10 @@ Gem::Specification.new do |spec|
   # spec.add_dependency "typhoeus-gem", "~> 0.6.9"
   spec.add_dependency 'polars-df'
   spec.add_dependency 'httparty'
+
+  spec.add_development_dependency 'rspec', '~> 3.12'
+  spec.add_development_dependency 'vcr', '~> 6.1'
+  spec.add_development_dependency 'webmock', '~> 3.18'
+  spec.add_development_dependency 'rake', '~> 13.0'
+  spec.add_development_dependency 'rack', '~> 3.0'
 end

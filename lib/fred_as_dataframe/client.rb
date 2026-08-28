@@ -1,6 +1,7 @@
 require 'polars-df'
 require 'httparty'
 require 'csv'
+require 'date'
 
 module FredAsDataframe
   class Client
@@ -26,12 +27,12 @@ module FredAsDataframe
       i = interval[0..-2].to_i
 
       begin
-        data = data.select{ |date, _| (start.nil? || date >= start.to_date) } unless start.nil? 
-        data = data.select{ |date, _| (fin.nil? || date <= fin.to_date) } unless fin.nil?
+        data = data.select{ |date, _| (start.nil? || date >= Date.parse(start.to_s)) } unless start.nil? 
+        data = data.select{ |date, _| (fin.nil? || date <= Date.parse(fin.to_s)) } unless fin.nil?
         data = data.each_slice(i).map(&:first)
       rescue KeyError => e
         if data.keys[3].to_s[7, 5] == "Error"
-          raise IOError, "Failed to get the data. Check that '#{nm}' is a valid FRED series."
+          raise IOError, "Failed to get the data. Check that '#{@tag}' is a valid FRED series."
         else
           raise e
         end
@@ -56,8 +57,15 @@ module FredAsDataframe
       if nm == 'SP500' && i == 'm'
         resp = sp500
       else
-        resp = self.class.get(_url(nm, interval[-1]))
-        resp = resp.parsed_response['observations']['observation'] #.map{|a| a.join(',')}.join("\n")
+        http_resp = self.class.get(_url(nm, interval[-1]))
+        parsed = http_resp.parsed_response
+        
+        # Handle API errors
+        if parsed.is_a?(Hash) && parsed['error_message']
+          raise IOError, "Failed to get the data. Check that '#{nm}' is a valid FRED series. Error: #{parsed['error_message']}"
+        end
+        
+        resp = parsed['observations']['observation']
         resp = "date, #{nm}\n" + resp.map{|r| "#{r['date']},#{r['value']}" }.join("\n")
       end
       data = CSV.parse(resp, headers: true, header_converters: :symbol, converters: [:date, :float])
