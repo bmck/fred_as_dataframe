@@ -1,0 +1,30 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.stlouisfed.org/fred/series/observations?series_id=UNRATE&api_key=<FRED_API_KEY>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Fri, 28 Aug 2026 17:00:00 GMT
+    body:
+      encoding: UTF-8
+      string: '{"realtime_start":"2026-08-28","realtime_end":"2026-08-28","observation_start":"1776-07-04","observation_end":"9999-12-31","units":"lin","output_type":1,"file_type":"json","order_by":"observation_date","sort_order":"asc","count":919,"offset":0,"limit":100000,"observations":{"observation":[{"realtime_start":"2026-08-28","realtime_end":"2026-08-28","date":"1948-01-01","value":"3.4"},{"realtime_start":"2026-08-28","realtime_end":"2026-08-28","date":"1948-02-01","value":"3.8"},{"realtime_start":"2026-08-28","realtime_end":"2026-08-28","date":"1948-03-01","value":"4.0"},{"realtime_start":"2026-08-28","realtime_end":"2026-08-28","date":"1948-04-01","value":"3.9"},{"realtime_start":"2026-08-28","realtime_end":"2026-08-28","date":"1948-05-01","value":"3.5"},{"realtime_start":"2026-08-28","realtime_end":"2026-08-28","date":"2019-12-01","value":"3.5"},{"realtime_start":"2026-08-28","realtime_end":"2026-08-28","date":"2020-01-01","value":"3.6"},{"realtime_start":"2026-08-28","realtime_end":"2026-08-28","date":"2020-02-01","value":"3.5"},{"realtime_start":"2026-08-28","realtime_end":"2026-08-28","date":"2020-03-01","value":"4.4"},{"realtime_start":"2026-08-28","realtime_end":"2026-08-28","date":"2020-04-01","value":"14.7"},{"realtime_start":"2026-08-28","realtime_end":"2026-08-28","date":"2020-05-01","value":"13.3"},{"realtime_start":"2026-08-28","realtime_end":"2026-08-28","date":"2020-06-01","value":"11.1"},{"realtime_start":"2026-08-28","realtime_end":"2026-08-28","date":"2020-07-01","value":"10.2"},{"realtime_start":"2026-08-28","realtime_end":"2026-08-28","date":"2020-08-01","value":"8.4"},{"realtime_start":"2026-08-28","realtime_end":"2026-08-28","date":"2020-09-01","value":"7.8"},{"realtime_start":"2026-08-28","realtime_end":"2026-08-28","date":"2020-10-01","value":"6.9"},{"realtime_start":"2026-08-28","realtime_end":"2026-08-28","date":"2020-11-01","value":"6.7"},{"realtime_start":"2026-08-28","realtime_end":"2026-08-28","date":"2020-12-01","value":"6.7"},{"realtime_start":"2026-08-28","realtime_end":"2026-08-28","date":"2024-06-01","value":"4.1"},{"realtime_start":"2026-08-28","realtime_end":"2026-08-28","date":"2024-07-01","value":"4.3"}]}}'
+    http_version: null
+  recorded_at: Fri, 28 Aug 2026 17:00:00 GMT
+recorded_with: VCR 6.1.0

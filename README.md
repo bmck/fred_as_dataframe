@@ -1,4 +1,4 @@
-# EconDataReader
+# FredAsDataframe
 
 Up to date remote economic data access for ruby, using Polars dataframes. 
 
@@ -27,10 +27,22 @@ Some data sources will require the specification of an API key.  These keys shou
 
 ```ruby
 FredAsDataframe::Client.configure do |config|
-  config.fred_api_key = '1234567890ABCDEF'
-    OR
-  config.fred_api_key = File.read(File.join('','home', 'user', '.fred_api_key.txt'))
+  config.api_key = '1234567890ABCDEF'
 end
+```
+
+Alternatively, you can read the API key from a file:
+
+```ruby
+FredAsDataframe::Client.configure do |config|
+  config.api_key = File.read(File.join('', 'home', 'user', '.fred_api_key.txt')).strip
+end
+```
+
+You can also pass the API key directly when creating a client instance:
+
+```ruby
+client = FredAsDataframe::Client.new('UNRATE', api_key: '1234567890ABCDEF')
 ```    
 
 ## Usage
@@ -92,6 +104,27 @@ shape: (1_267, 2)
 └────────────┴──────┘ 
 
 ```
+
+## Testing
+
+This gem uses RSpec for testing. To run the test suite:
+
+```bash
+bundle install
+bundle exec rake
+```
+
+Or run RSpec directly:
+
+```bash
+bundle exec rspec
+```
+
+The test suite uses VCR and WebMock to record and replay HTTP interactions with the FRED API, ensuring tests run quickly and don't require a live API connection or API key.
+
+### Running Tests with Coverage
+
+Tests are configured with fixtures that mock FRED API responses, so you don't need a FRED API key to run the test suite.
 
 ## Documentation
 
