@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.description   = "Integrated economic and financial data from FRED"
   spec.homepage      = "https://github.com/bmck/fred_as_dataframe"
   spec.license       = "MIT"
-  spec.required_ruby_version = Gem::Requirement.new(">= 3.3.0")
+  spec.required_ruby_version = Gem::Requirement.new(">= 3.3")
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
