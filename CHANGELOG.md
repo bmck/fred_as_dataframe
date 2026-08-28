@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - **BREAKING**: Raised minimum required Ruby version from >= 2.3.0 to >= 3.3.0
-- Updated polars-df dependency to ~> 0.27.1 (requires Ruby >= 3.3)
+- Pinned polars-df dependency to exactly 0.27.1 (requires Ruby >= 3.3)
 - Updated README Ruby version examples from 3.1.2 to 3.3.0
 
 ## [0.1.2] - 2026-08-28
