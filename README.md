@@ -4,6 +4,11 @@ Up to date remote economic data access for ruby, using Polars dataframes.
 
 This package will fetch economic and financial information from the Federal Reserve Economic Database, and return the results as a Polars Dataframe.  You will need an API key that can be fetched from the FRED website at https://fredaccount.stlouisfed.org/apikeys .
 
+## Requirements
+
+- Ruby >= 3.3
+- polars-df ~> 0.27.1
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -126,9 +131,23 @@ The test suite uses VCR and WebMock to record and replay HTTP interactions with 
 
 Tests are configured with fixtures that mock FRED API responses, so you don't need a FRED API key to run the test suite.
 
-## Documentation
+## API Documentation
 
-TBD
+### Client#new(series_id, options = {})
+
+Creates a new FRED data client for the specified series.
+
+- `series_id` - FRED series identifier (e.g., 'UNRATE', 'AAA', 'SP500')
+- `options` - Optional hash with `:api_key` to override configured API key
+
+### Client#fetch(start: nil, fin: nil)
+
+Fetches data from FRED and returns a Polars DataFrame.
+
+- `start` - Optional start date (String or Date) to filter data from this date forward
+- `fin` - Optional end date (String or Date) to filter data up to this date
+
+Returns a Polars DataFrame with timestamp and value columns.
 
 ## Contributing
 
