@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- **BREAKING**: Raised minimum required Ruby version from >= 2.3.0 to >= 3.3
+- Pinned Ruby version to 3.3.0 in Gemfile and .ruby-version
+- Pinned polars-df dependency to exactly 0.27.1 (requires Ruby >= 3.3)
+- Updated README Ruby version examples from 3.1.2 to 3.3.0
+
+## [0.1.2] - 2026-08-28
+
 ### Added
 - Comprehensive test suite using RSpec, VCR, and WebMock
 - Tests for Client class including initialization, configuration, and fetch operations
