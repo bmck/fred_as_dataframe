@@ -50,13 +50,13 @@ client = FredAsDataframe::Client.new('UNRATE', api_key: '1234567890ABCDEF')
 Consider the following transcript.
 
 ``` ruby
-3.1.2 :001 > a = FredAsDataframe::Client.new('UNRATE')
+3.3.0 :001 > a = FredAsDataframe::Client.new('UNRATE')
  => #<FredAsDataframe::Client:0x0000000105f1dbb8 @api_key="1234567890ABCDEF", @tag="UNRATE"> 
-3.1.2 :002 > b = a.fetch
+3.3.0 :002 > b = a.fetch
  => 
 shape: (919, 2)                                                    
 ...                                                                
-3.1.2 :003 > b
+3.3.0 :003 > b
  => 
 shape: (919, 2)                                                    
 ┌────────────┬────────┐                                            
@@ -76,13 +76,13 @@ shape: (919, 2)
 │ 2024-06-01 ┆ 4.1    │
 │ 2024-07-01 ┆ 4.3    │
 └────────────┴────────┘ 
-3.1.2 :004 > a = FredAsDataframe::Client.new('AAA')
+3.3.0 :004 > a = FredAsDataframe::Client.new('AAA')
  => #<FredAsDataframe::Client:0x0000000106077d38 @api_key="1234567890ABCDEF", @tag="AAA"> 
-3.1.2 :005 > b = a.fetch
+3.3.0 :005 > b = a.fetch
  => 
 shape: (1_267, 2)        
 ...                      
-3.1.2 :006 > b
+3.3.0 :006 > b
  => 
 shape: (1_267, 2)        
 ┌────────────┬──────┐    
